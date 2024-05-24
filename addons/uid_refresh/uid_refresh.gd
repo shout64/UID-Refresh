@@ -15,7 +15,8 @@ func fix_broken_uid():
   #Call each function step
   pass
 
-#Individual Functions
+
+############### Individual Functions ########################
 # TODO: Turn on debugger logging and use default logging location
 func enable_logging():
   pass
@@ -24,7 +25,7 @@ func enable_logging():
 func get_broken_dependancies():
   FileAccess.open("user://logs/godot.log", FileAccess.READ)
   
-#TODO: Get UID's needed
+#TODO: Get UID's needed, will have to search each .import file for correct UID
 
 #TODO: Replace UID
 func update_UID():
