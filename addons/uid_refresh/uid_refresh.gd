@@ -46,14 +46,20 @@ func fix_broken_dependancies():
       # Find path of asset
       var asset_start = content.find("res://", uid_end)
       var asset_path = content.substr(asset_start, -1)
+      
+      # Get correct UID for assets
+      var asset_UID_text = ResourceLoader.get_resource_uid(asset_path)
+      var correct_asset_UID = ResourceUID.id_to_text(asset_UID_text)
 
-#TODO: Get UID's needed, will have to search each .import file for correct UID
-
-
-#TODO: Replace UID
-func update_UID():
-  #for scene in scenes:
-    #var scene = scenes["node"]
-    #var file = FileAccess.open("res://")
-    #replace is a string function
-  pass
+      # TODO: Replace UID not working yet
+      var tscn = FileAccess.open(affected_tscn, FileAccess.READ_WRITE)
+      var tscn_content_old = tscn.get_as_text()
+      if tscn_content_old.contains(invalid_uid) == true:
+        var tscn_content_new = tscn_content_old.replacen(invalid_uid, correct_asset_UID)
+        tscn.store_string(tscn_content_new)
+        print("Fixed broken UID for " + asset_path + " in the TSCN " + affected_tscn)
+      else:
+        print("Broken dependancy is already fixed.")
+      tscn.close()
+      
+  log.close()
