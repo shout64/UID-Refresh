@@ -70,9 +70,14 @@ func fix_broken_dependencies():
           tscn.store_string(tscn_content_new)
           print("Fixed broken UID for " + asset_path + " in the TSCN " + affected_tscn)
         else:
-          print("Broken dependency is already fixed.")
+          print("First broken dependency is already fixed.")
+          print("Run game to get a new copy of the error log.")
+          return
         tscn.close()
-        
+      else:
+        print("No invalid UID's found.")
+        return
+      
     log.close()
   else:
     print("No log file to check. Please run your game and exit to generate a new log file.")
