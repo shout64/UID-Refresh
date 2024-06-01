@@ -6,8 +6,7 @@ Ultimately this is not a big deal, as Godot will use the text path for your asse
 ![Example Invalid UID Error](https://github.com/shout64/UID-Refresh/assets/135728867/f9ce7de6-86c4-4ba9-99c0-dec9ddaef499)
 
 ### The Solution
-**UID Refresh**
-UID Refresh will look through your error log, find invalid UID errors, then get the correct UID and replace them into your affected TSCN files.
+**UID Refresh** will look through your error log, find invalid UID errors, then get the correct UID and replace them into your affected TSCN files.
 
 ### How to Install and Use
 
