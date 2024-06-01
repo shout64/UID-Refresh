@@ -17,7 +17,7 @@ func fix_broken_uid():
     print("Please re-run UID Refresh.")
   else:
     get_log_location()
-    fix_broken_dependancies()
+    fix_broken_dependencies()
 
 func get_log_location():
   # If log location changes, update it.
@@ -36,7 +36,7 @@ func enable_logging():
     print("File logging enabled")
 
 
-func fix_broken_dependancies():
+func fix_broken_dependencies():
   # Open the error log
   if FileAccess.file_exists(log_location) == true:
     var log = FileAccess.open(log_location, FileAccess.READ)
@@ -70,7 +70,7 @@ func fix_broken_dependancies():
           tscn.store_string(tscn_content_new)
           print("Fixed broken UID for " + asset_path + " in the TSCN " + affected_tscn)
         else:
-          print("Broken dependancy is already fixed.")
+          print("Broken dependency is already fixed.")
         tscn.close()
         
     log.close()
