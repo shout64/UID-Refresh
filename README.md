@@ -1,4 +1,4 @@
-TLDR: UID Refresh will fix your "invalid UID" errors!
+TLDR: UID Refresh will fix your "invalid UID" errors in [Godot](https://github.com/godotengine/godot)!
 
 ### The Problem
 If you use git in your Godot projects and work with others, you may be all too familiar with seeing UID errors in your debug log.
