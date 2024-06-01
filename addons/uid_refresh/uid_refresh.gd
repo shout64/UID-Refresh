@@ -74,9 +74,6 @@ func fix_broken_dependencies():
           print("Run game to get a new copy of the error log.")
           return
         tscn.close()
-      else:
-        print("No invalid UID's found.")
-        return
       
     log.close()
   else:
