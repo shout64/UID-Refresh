@@ -1,5 +1,7 @@
 TLDR: UID Refresh will fix your "invalid UID" errors in [Godot](https://github.com/godotengine/godot)!
 
+[Download the latest release here.](https://github.com/shout64/UID-Refresh/releases)
+
 ### The Problem
 If you use git in your Godot projects and work with others, you may be all too familiar with seeing UID errors in your debug log.
 Ultimately this is not a big deal, as Godot will use the text path for your assets instead. However, you don't want to ship with these errors, and manually fixing them will be an annoying pain.
