@@ -61,19 +61,19 @@ func fix_broken_dependencies():
         var correct_asset_UID = ResourceUID.id_to_text(asset_UID_text)
 
         # Open affected TSCN
-        var tscn             = FileAccess.open(affected_tscn, FileAccess.READ_WRITE)
+        var tscn             = FileAccess.open(affected_tscn, FileAccess.READ)
         var tscn_content_old = tscn.get_as_text()
-        
+        tscn.close()
         # Fix the mismatched UID, and don't try to overwrite if it's already been fixed
         if tscn_content_old.contains(invalid_uid) == true:
           var tscn_content_new = tscn_content_old.replacen(invalid_uid, correct_asset_UID)
+          tscn = FileAccess.open(affected_tscn, FileAccess.WRITE)
           tscn.store_string(tscn_content_new)
-          print("Fixed broken UID for " + asset_path + " in the TSCN " + affected_tscn)
+          tscn.close()
+          print("Fixed broken UID in the TSCN " + affected_tscn + " for asset " + asset_path)
         else:
           print("First broken dependency is already fixed.")
           print("Run game to get a new copy of the error log.")
-          return
-        tscn.close()
       
     log.close()
   else:
